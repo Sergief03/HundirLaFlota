@@ -1,32 +1,68 @@
 package clases;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Flota {
-
+    //Propiedades
     private List<Barco> barquitos;
 
-
+    //Métodos
     public Flota(List<Barco> barquitos) {
-        throw new UnsupportedOperationException("Sin programar");
+        this.barquitos = new ArrayList<>();
     }
+
     public void añadirBarco(Barco b) {
-        throw new UnsupportedOperationException("Sin programar");
+        barquitos.add(b);
     }
+
     public int getNumeroBarcos() {
-        throw new UnsupportedOperationException("Sin programar");
+        return barquitos.size();
     }
+
     public int getNumeroBarcosActivos() {
-        throw new UnsupportedOperationException("Sin programar");
+        int contador = 0;
+        for (Barco b : barquitos) {
+            if(b.estaHundido() == false){
+                contador++;
+            }
+        }
+        return contador;
     }
+
     public int getNumeroBarcosHumdidos() {
-        throw new UnsupportedOperationException("Sin programar");
+        int contador = 0;
+        for (Barco b : barquitos) {
+            if(b.estaHundido() == true){
+                contador++;
+            }
+        }
+        return contador;
+
     }
+
     public boolean todosBarcosHundidos() {
-        throw new UnsupportedOperationException("Sin programar");
+        int contador = 0;
+        for (Barco b : barquitos) {
+            if(b.estaHundido() == true){
+                contador++;
+            }
+        }
+        if(contador == barquitos.size()){
+            return true;
+        }
+        return false;
     }
+
     public boolean hayBarco(int f, int c) {
-        throw new UnsupportedOperationException("Sin programar");
+        for (Barco b : barquitos) {
+            int fila = b.getFila();
+            int columna = b.getColumna();
+            if(fila == f && columna == c){
+                return true;
+            }
+        }
+        return false;
     }
     public int recibirDisparo(int f, int c) {
         throw new UnsupportedOperationException("Sin programar");
